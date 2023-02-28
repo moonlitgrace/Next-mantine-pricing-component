@@ -81,9 +81,9 @@ export const PricingContainer = () => {
                               width: '19rem',
                               borderRadius: '0.7rem',
                            },
-                           '@media (max-width: 820px)': {
+                           '@media (min-width: 756px) and (max-width: 820px)': {
                               width: '15rem',
-                              borderRadius: '0.7rem',
+                              borderRadius: '0.7rem 0 0 0.7rem',
                            },
                         }}
                      >
@@ -136,7 +136,7 @@ export const PricingContainer = () => {
                            alignItems: 'center',
                            justifyContent: 'center',
                            
-                           '@media (max-width: 820px)': {
+                           '@media (min-width: 756px) and (max-width: 820px)': {
                               width: '15rem',
                               borderRadius: '0.7rem',
                            },
@@ -198,9 +198,9 @@ export const PricingContainer = () => {
                               width: '19rem',
                               borderRadius: '0.7rem',
                            },
-                           '@media (max-width: 820px)': {
+                           '@media (min-width: 756px) and (max-width: 820px)': {
                               width: '15rem',
-                              borderRadius: '0.7rem',
+                              borderRadius: '0 0.7rem 0.7rem 0',
                            },
                         }}
                      >
