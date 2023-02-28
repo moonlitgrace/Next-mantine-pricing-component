@@ -11,7 +11,7 @@ export default function Home() {
             <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
          </Head>
          <Box
-            sx={theme => ({
+            sx={{
                backgroundColor: 'hsl(240, 78%, 98%)',
                height: '100vh',
                position: 'relative',
@@ -19,7 +19,12 @@ export default function Home() {
                display: 'flex',
                alignItems: 'center',
                justifyContent: 'center',
-            })}
+               
+               '@media (max-width:755px)': {
+                  paddingBlock: '5rem',
+                  height: '100%',
+               }
+            }}
          >
             <PricingContainer />
 
