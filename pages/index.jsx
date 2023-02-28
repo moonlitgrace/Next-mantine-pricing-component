@@ -31,6 +31,8 @@ export default function Home() {
             {/** design svgs */}
             <Image
                src='/bg-bottom.svg'
+               alt=""
+               priority
                width={300}
                height={250}
                style={{
@@ -41,6 +43,8 @@ export default function Home() {
             />
             <Image
                src='/bg-top.svg'
+               alt=""
+               priority
                width={200}
                height={500}
                style={{
