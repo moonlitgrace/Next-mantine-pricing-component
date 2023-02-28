@@ -1,7 +1,16 @@
-import { Box, Flex, Group, Stack, Switch, Text, Title } from '@mantine/core'
+import { Box, Flex, Group, Stack, Text, Title } from '@mantine/core'
+import { useState } from 'react'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
+import Switch from "react-switch"
+
 
 export const PricingContainer = () => {
+   const [monthly, setMonthly] = useState(true)
+
+   const handleChange = () => {
+      setMonthly(!monthly)
+   }
+
    return (
       <>
          <Group
@@ -32,10 +41,24 @@ export const PricingContainer = () => {
                      }}
                   >
                      <Text fz={'sm'}>Annually</Text>
+                     {/* <Switch
+                        // defaultChecked
+                        // onLabel={<MdKeyboardArrowRight size={16} />}
+                        // offLabel={<MdKeyboardArrowLeft size={16} />}
+                        // color={'linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%))'}
+                     /> */}
                      <Switch
-                        defaultChecked
-                        onLabel={<MdKeyboardArrowRight size={16} />}
-                        offLabel={<MdKeyboardArrowLeft size={16} />}
+                        checked={monthly}
+                        onChange={handleChange}
+                        checkedIcon={null}
+                        uncheckedIcon={null}
+                        boxShadow=''
+                        activeBoxShadow=''
+                        width={45}
+                        height={25}
+                        onColor={'#7F85E4'}
+                        offColor={'#7F85E4'}
+                        handleDiameter={18}
                      />
                      <Text fz={'sm'}>Monthly</Text>
                   </Box>
