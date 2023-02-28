@@ -1,9 +1,10 @@
-import { Box, Button, Divider, Flex, Group, Stack, Text, Title } from '@mantine/core'
+import { Box, Button, Divider, Flex, Group, Stack, Text, Title, useMantineTheme } from '@mantine/core'
 import { useState } from 'react'
 import Switch from "react-switch"
 
 
 export const PricingContainer = () => {
+   const theme = useMantineTheme()
    const [monthly, setMonthly] = useState(false)
 
    const handleChange = () => {
@@ -13,13 +14,9 @@ export const PricingContainer = () => {
    return (
       <>
          <Group
-            sx={{
-               zIndex: 50
-            }}
+            sx={{ zIndex: 50 }}
          >
-            <Stack
-               spacing={40}
-            >
+            <Stack spacing={40} >
                {/** header section */}
                <Flex
                   direction='column'
@@ -29,12 +26,12 @@ export const PricingContainer = () => {
                >
                   <Title
                      order={2}
-                     color='hsl(233, 13%, 49%)'
+                     color= {theme.colorScheme === 'dark' ? 'white' : 'hsl(233, 13%, 49%)'}
                   >Our Pricing</Title>
                   <Box
                      sx={{
                         fontWeight: 700,
-                        color: 'hsl(234, 14%, 74%)',
+                        color: theme.colorScheme === 'dark' ? theme.colors.dark[1]: 'hsl(234, 14%, 74%)',
                         display: 'flex',
                         alignItems: 'center',
                         gap: 19
@@ -71,7 +68,7 @@ export const PricingContainer = () => {
                            height: '22rem',
                            width: '17rem',
                            paddingInline: '1.5rem',
-                           backgroundColor: 'white',
+                           backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : 'white',
                            borderRadius: '0.7rem 0 0 0.7rem',
                            display: 'flex',
                            alignItems: 'center',
@@ -90,12 +87,12 @@ export const PricingContainer = () => {
                         <Stack w={'100%'} align={'center'} spacing={20}>
                            <Text sx={{
                               fontWeight: 700,
-                              color: 'hsl(233, 13%, 49%)',
+                              color: theme.colorScheme === 'dark' ? theme.colors.dark[1] : 'hsl(233, 13%, 49%)',
                            }} fz={'md'}>Basic</Text>
                            <Title
                               order={2}
                               sx={{
-                                 color: 'hsl(232, 13%, 33%)',
+                                 color: theme.colorScheme === 'dark' ? 'white' : 'hsl(232, 13%, 33%)',
                                  fontSize: 50,
                                  display: 'flex',
                                  alignItems: 'center',
@@ -105,14 +102,14 @@ export const PricingContainer = () => {
                               <Text fz={'2rem'}>$</Text>
                               {monthly ? '19.99' : '199.99'}
                            </Title>
-                           <Stack w={'100%'} align='center' spacing={10}>
-                              <Divider sx={{ width: '100%' }} />
-                              <Text fz={'sm'} fw={600} color='hsl(233, 13%, 49%)'>500 GB Storage</Text>
-                              <Divider sx={{ width: '100%' }} />
-                              <Text fz={'sm'} fw={600} color='hsl(233, 13%, 49%)'>2 Users Allowed</Text>
-                              <Divider sx={{ width: '100%' }} />
-                              <Text fz={'sm'} fw={600} color='hsl(233, 13%, 49%)'>Send up to 3 GB</Text>
-                              <Divider sx={{ width: '100%' }} />
+                           <Stack w={'100%'} align='center' spacing={10} sx={{color: theme.colorScheme === 'light' && 'hsl(233, 13%, 49%)'}}>
+                              <Divider sx={{ width: '100%', borderColor: theme.colorScheme === 'dark' &&'gray', opacity: theme.colorScheme === 'dark' && 0.7 }} />
+                              <Text fz={'sm'} fw={600} >500 GB Storage</Text>
+                              <Divider sx={{ width: '100%', borderColor: theme.colorScheme === 'dark' &&'gray', opacity: theme.colorScheme === 'dark' && 0.7 }} />
+                              <Text fz={'sm'} fw={600} >2 Users Allowed</Text>
+                              <Divider sx={{ width: '100%', borderColor: theme.colorScheme === 'dark' &&'gray', opacity: theme.colorScheme === 'dark' && 0.7 }} />
+                              <Text fz={'sm'} fw={600} >Send up to 3 GB</Text>
+                              <Divider sx={{ width: '100%', borderColor: theme.colorScheme === 'dark' &&'gray', opacity: theme.colorScheme === 'dark' && 0.7 }} />
                            </Stack>
                            <Button
                               variant='gradient'
@@ -159,13 +156,13 @@ export const PricingContainer = () => {
                               {monthly ? '24.99' : '249.99'}
                            </Title>
                            <Stack w={'100%'} align='center' spacing={10}>
-                              <Divider sx={{ width: '100%' }} />
+                              <Divider sx={{ width: '100%', borderColor: theme.colorScheme === 'dark' && 'white', opacity: theme.colorScheme === 'dark' && 0.6 }} />
                               <Text fz={'sm'} fw={600}>1 TB Storage</Text>
-                              <Divider sx={{ width: '100%' }} />
+                              <Divider sx={{ width: '100%', borderColor: theme.colorScheme === 'dark' && 'white', opacity: theme.colorScheme === 'dark' && 0.6 }} />
                               <Text fz={'sm'} fw={600}>5 Users Allowed</Text>
-                              <Divider sx={{ width: '100%' }} />
+                              <Divider sx={{ width: '100%', borderColor: theme.colorScheme === 'dark' && 'white', opacity: theme.colorScheme === 'dark' && 0.6 }} />
                               <Text fz={'sm'} fw={600}>Send up to 10 GB</Text>
-                              <Divider sx={{ width: '100%' }} />
+                              <Divider sx={{ width: '100%', borderColor: theme.colorScheme === 'dark' && 'white', opacity: theme.colorScheme === 'dark' && 0.6 }} />
                            </Stack>
                            <Button
                               sx={{
@@ -188,7 +185,7 @@ export const PricingContainer = () => {
                            height: '22rem',
                            width: '18rem',
                            paddingInline: '1.5rem',
-                           backgroundColor: 'white',
+                           backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : 'white',
                            borderRadius: '0 0.7rem 0.7rem 0',
                            display: 'flex',
                            alignItems: 'center',
@@ -207,12 +204,12 @@ export const PricingContainer = () => {
                         <Stack w={'100%'} align={'center'} spacing={20}>
                            <Text sx={{
                               fontWeight: 700,
-                              color: 'hsl(233, 13%, 49%)',
+                              color: theme.colorScheme === 'dark' ? theme.colors.dark[1] : 'hsl(233, 13%, 49%)',
                            }} fz={'md'}>Master</Text>
                            <Title
                               order={2}
                               sx={{
-                                 color: 'hsl(232, 13%, 33%)',
+                                 color: theme.colorScheme === 'dark' ? 'white' : 'hsl(232, 13%, 33%)',
                                  fontSize: 50,
                                  display: 'flex',
                                  alignItems: 'center',
@@ -222,14 +219,14 @@ export const PricingContainer = () => {
                               <Text fz={'2rem'}>$</Text>
                               {monthly ? '39.99' : '399.99'}
                            </Title>
-                           <Stack w={'100%'} align='center' spacing={10}>
-                              <Divider sx={{ width: '100%' }} />
-                              <Text fz={'sm'} fw={600} color='hsl(233, 13%, 49%)'>2 TB Storage</Text>
-                              <Divider sx={{ width: '100%' }} />
-                              <Text fz={'sm'} fw={600} color='hsl(233, 13%, 49%)'>10 Users Allowed</Text>
-                              <Divider sx={{ width: '100%' }} />
-                              <Text fz={'sm'} fw={600} color='hsl(233, 13%, 49%)'>Send up to 20 GB</Text>
-                              <Divider sx={{ width: '100%' }} />
+                           <Stack w={'100%'} align='center' spacing={10} sx={{color: theme.colorScheme === 'light' && 'hsl(233, 13%, 49%)'}}>
+                              <Divider sx={{ width: '100%', borderColor: theme.colorScheme === 'dark' &&'gray', opacity: theme.colorScheme === 'dark' && 0.7 }} />
+                              <Text fz={'sm'} fw={600} >2 TB Storage</Text>
+                              <Divider sx={{ width: '100%', borderColor: theme.colorScheme === 'dark' &&'gray', opacity: theme.colorScheme === 'dark' && 0.7 }} />
+                              <Text fz={'sm'} fw={600} >10 Users Allowed</Text>
+                              <Divider sx={{ width: '100%', borderColor: theme.colorScheme === 'dark' &&'gray', opacity: theme.colorScheme === 'dark' && 0.7 }} />
+                              <Text fz={'sm'} fw={600} >Send up to 20 GB</Text>
+                              <Divider sx={{ width: '100%', borderColor: theme.colorScheme === 'dark' &&'gray', opacity: theme.colorScheme === 'dark' && 0.7 }} />
                            </Stack>
                            <Button
                               variant='gradient'

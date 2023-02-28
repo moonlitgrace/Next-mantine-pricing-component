@@ -1,18 +1,29 @@
 import '@/styles/globals.css';
-import { MantineProvider } from '@mantine/core';
+import { MantineProvider, ColorSchemeProvider } from '@mantine/core';
+import { useState } from 'react';
 
 export default function App({ Component, pageProps }) {
+
+   const [colorScheme, setColorScheme] = useState({
+      key: 'mantine-color-scheme',
+      defaultValue: 'light',
+      getInitialValueInEffect: true,
+   });
+
+   const toggleColorScheme = (value) =>
+      setColorScheme(colorScheme === 'dark' ? 'light' : 'dark');
+
    return (
       <>
-         <MantineProvider
-            withGlobalStyles
-            withNormalizeCSS
-            theme={{
-               colorScheme: 'light',
-            }}
-         >
-            <Component {...pageProps} />
-         </MantineProvider>
+         <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+            <MantineProvider
+               withGlobalStyles
+               withNormalizeCSS
+               theme={{ colorScheme }}
+            >
+               <Component {...pageProps} />
+            </MantineProvider>
+         </ColorSchemeProvider>
       </>
    )
 }
