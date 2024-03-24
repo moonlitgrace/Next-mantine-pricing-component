@@ -1,7 +1,7 @@
-## Pricing component made with Nextjs and Mantine
-Nextjs - for frontend <br>
-Mantine - for ui designing and responsive <br>
-Site was live at : https://next-mantine-pricing-component.vercel.app/
+## Pricing component made with Nextjs and MantineUI
+Nextjs - Frontend framework <br>
+Mantine - UI framework <br>
+Site is live : https://next-mantine-pricing-component.vercel.app/
 <br>
 
 Dark mode :
